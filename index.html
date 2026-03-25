@@ -4,9 +4,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Website</title>
+
+  <style>
+    /* --- Blinking text --- */
+    @keyframes blinkAnimation {
+      0%   { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .blinkingText {
+      animation: blinkAnimation 1s infinite;
+    }
+
+    /* --- Button styling --- */
+    #colorToggleButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+
 </head>
 <body>
-  <h1>Hello world</h1>
+
+  <h1 class="blinkingText">Hello world</h1>
   <p>This site is live on GitHub Pages.</p>
+
+  <button id="colorToggleButton">Click me</button>
+
+  <script>
+    const buttonElement = document.getElementById("colorToggleButton");
+
+    let isActive = false;
+
+    buttonElement.addEventListener("click", function () {
+      isActive = !isActive;
+
+      if (isActive) {
+        buttonElement.style.backgroundColor = "#e74c3c"; // red
+        buttonElement.textContent = "Clicked!";
+      } else {
+        buttonElement.style.backgroundColor = "#3498db"; // blue
+        buttonElement.textContent = "Click me";
+      }
+    });
+  </script>
+
 </body>
 </html>
